@@ -1,7 +1,7 @@
 package ru.yandex.practicum.filmorate.util;
 
 public  final class StringValidator {
-    private StringValidator(){}
+    private StringValidator() {}
 
     public static boolean isLengthBiggerThanMaxLength(String stringToValidate, int maxLength) {
 
