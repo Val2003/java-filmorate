@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringValidatorTest {
 
-    private final static int MAX_DESCRIPTION_LENGTH = 200;
+    private  static final int MAX_DESCRIPTION_LENGTH = 200;
 
     @Test
     void isLengthBiggerThanMaxLength() {
