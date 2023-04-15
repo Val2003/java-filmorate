@@ -1,14 +1,12 @@
 package ru.yandex.practicum.filmorate.util;
 
-import java.time.Duration;
-
 public final class DurationValidator {
 private DurationValidator() {
 }
 
-    public static boolean isDurationNegativeOrZero(Duration duration) {
+    public static boolean isDurationNegativeOrZero(Integer duration) {
 
-        return duration.toSeconds() <= 0;
+        return duration <= 0;
     }
 
 }

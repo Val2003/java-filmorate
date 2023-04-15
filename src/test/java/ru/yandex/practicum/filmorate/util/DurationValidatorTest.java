@@ -16,7 +16,7 @@ class DurationValidatorTest {
         var titanicWithNegativeDuration = Film.builder().id(1)
                 .name("Titanic")
                 .description("Test Description")
-                .duration(Duration.ofMinutes(-90))
+                .duration(-90)
                 .releaseDate(LocalDate.of(1997, 1, 23))
                 .build();
 

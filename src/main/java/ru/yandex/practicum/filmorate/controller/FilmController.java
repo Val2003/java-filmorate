@@ -34,8 +34,6 @@ public class FilmController {
     public Film addNewFilm(@RequestBody @Valid Film film) {
         log.info("Add request received POST /films");
         if (validateFilm(film)) {
-            // Проверяю, что в коллекции нет фильма с такими же названием,
-            // описанием, датой релиза и длительностью
             if (films.containsValue(film)) {
                 String exceptionMessage = "The movie has already been added to the library";
                 log.warn("Error in add film. Exception message: {}",

@@ -17,7 +17,7 @@ class LocalDateValidatorTest {
         Film titanicWithTooOldReleaseDate = Film.builder().id(1)
                 .name("Titanic")
                 .description("Test Description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1797, 1, 23))
                 .build();
 

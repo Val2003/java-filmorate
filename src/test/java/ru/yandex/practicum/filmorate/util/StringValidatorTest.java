@@ -25,7 +25,7 @@ class StringValidatorTest {
         Film titanicWithTooLongDescription = Film.builder().id(1)
                 .name("Titanic")
                 .description(tooLongDescription)
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1997, 1, 23))
                 .build();
         assertTrue(StringValidator.isLengthBiggerThanMaxLength(titanicWithTooLongDescription.getDescription(),
@@ -37,14 +37,14 @@ class StringValidatorTest {
         Film titanicWithEmptyName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1997, 1, 23))
                 .build();
 
         Film titanicWithNullName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1997, 1, 23))
                 .build();
 

@@ -44,7 +44,7 @@ class FilmControllerTest {
         titanicWithEmptyName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1997, 1, 23))
                 .build();
 
@@ -57,21 +57,21 @@ class FilmControllerTest {
         titanicWithTooLongDescription = Film.builder().id(1)
                 .name("Titanic")
                 .description(tooLongDescription)
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1997, 1, 23))
                 .build();
 
         titanicWithNegativeDuration = Film.builder().id(1)
                 .name("Titanic")
                 .description("Test Description")
-                .duration(Duration.ofMinutes(-90))
+                .duration(-90)
                 .releaseDate(LocalDate.of(1997, 1, 23))
                 .build();
 
         titanicWithTooOldReleaseDate = Film.builder().id(1)
                 .name("Titanic")
                 .description("Test Description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1797, 1, 23))
                 .build();
     }

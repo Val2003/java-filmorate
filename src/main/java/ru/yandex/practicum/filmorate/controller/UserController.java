@@ -32,8 +32,6 @@ public class UserController {
         log.info("Получен запрос 'POST /users'");
 
         if (validateUser(user)) {
-            // Проверяю, что в коллекции нет пользователья с такими же именем, логином, email
-            // и датой рождения
             if (users.containsValue(user)) {
                 String exceptionMessage = "Пользователь уже добавлен";
                 log.warn("Ошибка при добавлении нового пользователя. Сообщение исключения: {}", exceptionMessage);
