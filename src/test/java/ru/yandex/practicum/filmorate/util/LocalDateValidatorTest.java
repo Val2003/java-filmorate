@@ -21,10 +21,10 @@ class LocalDateValidatorTest {
                 .releaseDate(LocalDate.of(1797, 1, 23))
                 .build();
 
-        LocalDate THE_OLDEST_RELEASE_DATE = LocalDate.of(1895, 12, 28);
+        LocalDate theOldestReleaseDate = LocalDate.of(1895, 12, 28);
 
         assertTrue(LocalDateValidator.isDateTooOld(titanicWithTooOldReleaseDate.getReleaseDate(),
-                                                                            THE_OLDEST_RELEASE_DATE));
+                                                                            theOldestReleaseDate));
     }
 
     @Test
