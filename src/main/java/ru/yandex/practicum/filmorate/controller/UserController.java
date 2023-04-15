@@ -2,7 +2,9 @@ package ru.yandex.practicum.filmorate.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.practicum.filmorate.exceptions.*;
+import ru.yandex.practicum.filmorate.exceptions.EntityAlreadyExistsException;
+import ru.yandex.practicum.filmorate.exceptions.EntityDoesNotExistException;
+import ru.yandex.practicum.filmorate.exceptions.UserValidationException;
 import ru.yandex.practicum.filmorate.model.User;
 import ru.yandex.practicum.filmorate.util.LocalDateValidator;
 import ru.yandex.practicum.filmorate.util.StringValidator;
@@ -17,13 +19,12 @@ import java.util.List;
 @Slf4j
 public class UserController {
 
+    private final HashMap<Integer, User> users = new HashMap<>();
     private int idToNewUser = 1;
 
     private int generateUserId() {
-       return idToNewUser++;
+        return idToNewUser++;
     }
-
-    private final HashMap<Integer, User> users = new HashMap<>();
 
     @PostMapping
     public User addNewUser(@RequestBody @Valid User user) {

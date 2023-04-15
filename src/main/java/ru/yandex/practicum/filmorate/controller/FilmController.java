@@ -12,7 +12,9 @@ import ru.yandex.practicum.filmorate.util.StringValidator;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/films")
@@ -21,8 +23,8 @@ public class FilmController {
 
     private static final int MAX_DESCRIPTION_LENGTH = 200;
     private static final LocalDate THE_OLDEST_RELEASE_DATE = LocalDate.of(1895, 12, 28);
-    private int idToNewFilm = 1;
     private final HashMap<Integer, Film> films = new HashMap<>();
+    private int idToNewFilm = 1;
 
     private int generateFilmId() {
         return idToNewFilm++;
