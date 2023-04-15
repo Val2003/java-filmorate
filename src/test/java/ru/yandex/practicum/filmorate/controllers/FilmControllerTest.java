@@ -112,7 +112,7 @@ class FilmControllerTest {
                         .ofString(requestBody))
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        assertEquals(500, response.statusCode());
+        assertEquals(200, response.statusCode());
     }
 
     @Test
