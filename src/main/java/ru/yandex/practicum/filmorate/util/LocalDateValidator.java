@@ -3,7 +3,7 @@ package ru.yandex.practicum.filmorate.util;
 import java.time.LocalDate;
 
 public final class LocalDateValidator {
-private LocalDateValidator(){}
+private LocalDateValidator() {}
     public static boolean isDateTooOld(LocalDate dateToCheck, LocalDate theOldestPossibleDate) {
 
         return dateToCheck.isBefore(theOldestPossibleDate);
