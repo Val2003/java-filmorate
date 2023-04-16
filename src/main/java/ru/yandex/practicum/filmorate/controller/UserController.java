@@ -94,7 +94,8 @@ public class UserController {
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
         }
-        else {valid=true;
+        else {
+            valid = true;
         }
        return valid;
     }
