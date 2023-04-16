@@ -93,8 +93,7 @@ public class UserController {
             String exceptionMessage = "Пользователь не может быть рождён в будущем";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
-        }
-        else {
+        } else {
             valid = true;
         }
        return valid;
