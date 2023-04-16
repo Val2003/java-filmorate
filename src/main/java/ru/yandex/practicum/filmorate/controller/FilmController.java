@@ -93,8 +93,8 @@ public class FilmController {
             String exceptionMessage = "Movie duration must be positive";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
-        } else
-        { valid = true;
+        } else {
+            valid = true;
         }
         return valid;
     }
