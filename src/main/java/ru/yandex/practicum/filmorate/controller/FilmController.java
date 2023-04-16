@@ -75,27 +75,28 @@ public class FilmController {
     }
 
     private boolean validateFilm(Film film) {
-        boolean valid = false;
+
         if (StringValidator.isNullOrEmpty(film.getName())) {
             String exceptionMessage = "Movie title must not be empty";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
-        } else if (StringValidator.isLengthBiggerThanMaxLength(film.getDescription(), MAX_DESCRIPTION_LENGTH)) {
+        }
+        if (StringValidator.isLengthBiggerThanMaxLength(film.getDescription(), MAX_DESCRIPTION_LENGTH)) {
             String exceptionMessage = "Maximum description length - " + MAX_DESCRIPTION_LENGTH + " characters";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
-        } else if (LocalDateValidator.isDateTooOld(film.getReleaseDate(), THE_OLDEST_RELEASE_DATE)) {
+        }
+        if (LocalDateValidator.isDateTooOld(film.getReleaseDate(), THE_OLDEST_RELEASE_DATE)) {
             String exceptionMessage = "Too old data of release."
                     + " add film after 28.12.1895";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
-        } else if (DurationValidator.isDurationNegativeOrZero(film.getDuration())) {
+        }
+        if (DurationValidator.isDurationNegativeOrZero(film.getDuration())) {
             String exceptionMessage = "Movie duration must be positive";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
-        } else {
-            valid = true;
         }
-        return valid;
+        return true;
     }
 }

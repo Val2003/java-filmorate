@@ -70,32 +70,34 @@ public class UserController {
     }
 
     private boolean validateUser(User user) {
-    boolean valid = false;
+    boolean valid = true;
         if (StringValidator.isNullOrEmpty(user.getEmail())) {
             String exceptionMessage = "Email пользователя не может быть"
                     + " не задан или быть пустой строкой";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
 
-        } else  if (!user.getEmail().contains("@")) {
+        }
+        if (!user.getEmail().contains("@")) {
 
             String exceptionMessage = "Email пользователя должен содержать '@'";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
-        } else if (StringValidator.isEmptyOrContainsSpaceSymbol(user.getLogin())) {
+        }
+        if (StringValidator.isEmptyOrContainsSpaceSymbol(user.getLogin())) {
             String exceptionMessage = "Логин пользователя не должен быть пустым" +
                     " и содержать пробелы";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
-        } else if (StringValidator.isNullOrEmpty(user.getName())) {
+        }
+        if (StringValidator.isNullOrEmpty(user.getName())) {
             user.setName(user.getLogin());
-        } else  if (LocalDateValidator.isDateInTheFuture(user.getBirthday())) {
+        }
+        if (LocalDateValidator.isDateInTheFuture(user.getBirthday())) {
             String exceptionMessage = "Пользователь не может быть рождён в будущем";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
-        } else {
-            valid = true;
         }
-        return valid;
+        return true;
     }
 }
