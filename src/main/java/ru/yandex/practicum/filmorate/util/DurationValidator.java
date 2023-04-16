@@ -6,7 +6,7 @@ private DurationValidator() {
 
     public static boolean isDurationNegativeOrZero(Integer duration) {
 
-        return duration <= 0;
+        return (duration <= 0);
     }
 
 }

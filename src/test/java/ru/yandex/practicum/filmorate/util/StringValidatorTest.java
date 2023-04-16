@@ -20,6 +20,8 @@ class StringValidatorTest {
                 " Test description Test description Test description" +
                 "Test description Test description Test description" +
                 "Test description Test description Test description" +
+                "Test description Test description Test description" +
+                "Test description Test description Test description" +
                 "Test description Test description Test description";
 
         Film titanicWithTooLongDescription = Film.builder().id(1)

@@ -69,37 +69,33 @@ public class UserController {
         return new ArrayList<>(users.values());
     }
 
-    public boolean validateUser(User user) {
-
+    private boolean validateUser(User user) {
+    boolean valid = false;
         if (StringValidator.isNullOrEmpty(user.getEmail())) {
             String exceptionMessage = "Email пользователя не может быть"
                     + " не задан или быть пустой строкой";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
-        }
 
-        if (!user.getEmail().contains("@")) {
+        } else  if (!user.getEmail().contains("@")) {
+
             String exceptionMessage = "Email пользователя должен содержать '@'";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
-        }
-
-        if (StringValidator.isEmptyOrContainsSpaceSymbol(user.getLogin())) {
+        } else if (StringValidator.isEmptyOrContainsSpaceSymbol(user.getLogin())) {
             String exceptionMessage = "Логин пользователя не должен быть пустым" +
                     " и содержать пробелы";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
-        }
-
-        if (StringValidator.isNullOrEmpty(user.getName())) {
+        } else if (StringValidator.isNullOrEmpty(user.getName())) {
             user.setName(user.getLogin());
-        }
-
-        if (LocalDateValidator.isDateInTheFuture(user.getBirthday())) {
+        } else  if (LocalDateValidator.isDateInTheFuture(user.getBirthday())) {
             String exceptionMessage = "Пользователь не может быть рождён в будущем";
             log.warn("Ошибка при валидации пользователя. Сообщение исключения: {}", exceptionMessage);
             throw new UserValidationException(exceptionMessage);
         }
-        return true;
+        else {valid=true;
+        }
+       return valid;
     }
 }

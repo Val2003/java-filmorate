@@ -69,38 +69,32 @@ public class FilmController {
     }
 
     @GetMapping
-    public List<Film> getAll() {
+     public List<Film> getAll() {
 
         return new ArrayList<>(films.values());
     }
 
-    public boolean validateFilm(Film film) {
-
+    private boolean validateFilm(Film film) {
+        boolean valid = false;
         if (StringValidator.isNullOrEmpty(film.getName())) {
             String exceptionMessage = "Movie title must not be empty";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
-        }
-
-        if (StringValidator.isLengthBiggerThanMaxLength(film.getDescription(), MAX_DESCRIPTION_LENGTH)) {
+        } else if (StringValidator.isLengthBiggerThanMaxLength(film.getDescription(), MAX_DESCRIPTION_LENGTH)) {
             String exceptionMessage = "Maximum description length - " + MAX_DESCRIPTION_LENGTH + " characters";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
-        }
-
-        if (LocalDateValidator.isDateTooOld(film.getReleaseDate(), THE_OLDEST_RELEASE_DATE)) {
+        } else if (LocalDateValidator.isDateTooOld(film.getReleaseDate(), THE_OLDEST_RELEASE_DATE)) {
             String exceptionMessage = "Too old data of release."
                     + " add film after 28.12.1895";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
-        }
-
-        if (DurationValidator.isDurationNegativeOrZero(film.getDuration())) {
+        } else if (DurationValidator.isDurationNegativeOrZero(film.getDuration())) {
             String exceptionMessage = "Movie duration must be positive";
             log.warn("Error validation. Exception message: {}", exceptionMessage);
             throw new FilmValidationException(exceptionMessage);
+        } else {valid=true;
         }
-
-        return true;
+        return valid;
     }
 }
