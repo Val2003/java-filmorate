@@ -1,0 +1,43 @@
+package ru.yandex.practicum.filmorate.util;
+
+import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.filmorate.model.Film;
+import ru.yandex.practicum.filmorate.model.User;
+
+
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class LocalDateValidatorTest {
+
+    @Test
+    void isDateTooOld() {
+
+        Film titanicWithTooOldReleaseDate = Film.builder().id(1)
+                .name("Titanic")
+                .description("Test Description")
+                .duration(90)
+                .releaseDate(LocalDate.of(1797, 1, 23))
+                .build();
+
+        LocalDate theOldestReleaseDate = LocalDate.of(1895, 12, 28);
+
+        assertTrue(LocalDateValidator.isDateTooOld(titanicWithTooOldReleaseDate.getReleaseDate(),
+                                                                            theOldestReleaseDate));
+    }
+
+    @Test
+    void isDateInTheFuture() {
+
+        User userWithBirthdayInTheFuture = User.builder()
+                .id(1)
+                .email("Test@mail.com")
+                .login("TestLogin")
+                .name("TestName")
+                .birthday(LocalDate.of(2100, 2, 28))
+                .build();
+
+        assertTrue(LocalDateValidator.isDateInTheFuture(userWithBirthdayInTheFuture.getBirthday()));
+    }
+}
