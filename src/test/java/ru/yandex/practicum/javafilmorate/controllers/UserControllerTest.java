@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.test.web.servlet.MockMvc;
+
 
 import ru.yandex.practicum.javafilmorate.model.User;
 
