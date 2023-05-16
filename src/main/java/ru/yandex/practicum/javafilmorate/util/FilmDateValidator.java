@@ -2,7 +2,6 @@ package ru.yandex.practicum.javafilmorate.util;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.time.Duration;
 import java.time.LocalDate;
 
 public class FilmDateValidator implements ConstraintValidator<FilmDate, LocalDate> {
