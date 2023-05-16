@@ -25,7 +25,7 @@ public class InMemoryUserStorage implements UserStorage {
     }
 
     @Getter(lazy = true)
-    private final static InMemoryUserStorage instance = new InMemoryUserStorage();
+    private static final InMemoryUserStorage instance = new InMemoryUserStorage();
 
 
     private long generateUserId() {
