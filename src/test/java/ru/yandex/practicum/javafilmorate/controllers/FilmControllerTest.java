@@ -21,9 +21,6 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-
-
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class FilmControllerTest {
 

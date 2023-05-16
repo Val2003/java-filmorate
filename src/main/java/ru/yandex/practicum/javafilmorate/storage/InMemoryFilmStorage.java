@@ -15,7 +15,7 @@ import java.util.Map;
 @Slf4j
 public class InMemoryFilmStorage implements FilmStorage {
 
-    private final Map<Long,Film> films = new HashMap<>();
+    private final Map<Long, Film> films = new HashMap<>();
 
     private long idToNewFilm = 1;
 
@@ -44,7 +44,7 @@ public class InMemoryFilmStorage implements FilmStorage {
     @Override
     public Film getFilm(Long id) {
 
-        if(!films.containsKey(id)){
+        if (!films.containsKey(id)) {
             String exceptionMessage = String.format("Movie with requested id = %d does not exist", id);
             log.warn("Movie request failed. Exception message: {}",
                     exceptionMessage);
@@ -56,7 +56,7 @@ public class InMemoryFilmStorage implements FilmStorage {
     @Override
     public Film removeFilm(Long id) {
 
-        if(!films.containsKey(id)){
+        if (!films.containsKey(id)) {
             String exceptionMessage = String.format("Movie with requested id = %d does not exist", id);
             log.warn("Movie request failed. Exception message: {}",
                     exceptionMessage);

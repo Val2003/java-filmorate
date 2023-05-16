@@ -10,14 +10,15 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import ru.yandex.practicum.javafilmorate.model.User;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
-import static org.junit.jupiter.api.Assertions.*;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
@@ -29,14 +30,6 @@ class UserControllerTest {
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
     private static final int PORT = 8080;
-
-
-
-
-
-
-
-
 
 
     @Test

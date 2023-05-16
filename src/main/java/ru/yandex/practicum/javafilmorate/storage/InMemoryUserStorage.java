@@ -14,17 +14,17 @@ import java.util.Map;
 
 @Component
 @Slf4j
-public class InMemoryUserStorage implements UserStorage{
+public class InMemoryUserStorage implements UserStorage {
 
     private final Map<Long, User> users;
     private long idToNewUser;
 
-    private InMemoryUserStorage(){
+    private InMemoryUserStorage() {
         users = new HashMap<>();
         idToNewUser = 1;
     }
 
-    @Getter(lazy=true)
+    @Getter(lazy = true)
     private final static InMemoryUserStorage instance = new InMemoryUserStorage();
 
 
@@ -51,7 +51,7 @@ public class InMemoryUserStorage implements UserStorage{
     @Override
     public User getUser(Long id) {
 
-        if(!users.containsKey(id)){
+        if (!users.containsKey(id)) {
             String exceptionMessage = String.format("Пользователь с запрашиваемым id = %d не существует", id);
             log.warn("Ошибка при запросе пользователя. Сообщение исключения: {}",
                     exceptionMessage);
@@ -64,7 +64,7 @@ public class InMemoryUserStorage implements UserStorage{
     @Override
     public User removeUser(Long id) {
 
-        if(!users.containsKey(id)){
+        if (!users.containsKey(id)) {
             String exceptionMessage = String.format("Пользователь с запрашиваемым id = %d не существует", id);
             log.warn("Ошибка при запросе пользователя. Сообщение исключения: {}",
                     exceptionMessage);
