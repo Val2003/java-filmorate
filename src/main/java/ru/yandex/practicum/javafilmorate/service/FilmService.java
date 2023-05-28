@@ -15,8 +15,8 @@ public class FilmService {
     private final FilmStorage filmStorage;
     private final LikeDao likeDao;
 
-    public FilmService(@Qualifier("filmStorageDb") FilmStorage filmStorage
-            , LikeDao likeDao) {
+    public FilmService(@Qualifier("filmStorageDb") FilmStorage filmStorage,
+                       LikeDao likeDao) {
         this.filmStorage = filmStorage;
         this.likeDao = likeDao;
     }
