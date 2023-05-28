@@ -16,7 +16,7 @@ public class FilmService {
     private final LikeDao likeDao;
 
     public FilmService(@Qualifier("filmStorageDb") FilmStorage filmStorage
-                        , LikeDao likeDao) {
+            , LikeDao likeDao) {
         this.filmStorage = filmStorage;
         this.likeDao = likeDao;
     }
@@ -42,7 +42,7 @@ public class FilmService {
     }
 
     public void deleteLikeFilmInStorage(long id, long userId) {
-        likeDao.deleteLike(id,userId);
+        likeDao.deleteLike(id, userId);
     }
 
     public List<Film> getMostLikedFilmsFromStorage(int count) {
