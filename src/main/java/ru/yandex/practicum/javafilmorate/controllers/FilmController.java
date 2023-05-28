@@ -1,0 +1,62 @@
+package ru.yandex.practicum.javafilmorate.controllers;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
+import ru.yandex.practicum.javafilmorate.model.Film;
+import ru.yandex.practicum.javafilmorate.service.FilmService;
+
+import javax.validation.Valid;
+import java.util.*;
+
+@RestController
+@RequestMapping("/films")
+@Slf4j
+@RequiredArgsConstructor
+public class FilmController {
+
+    private final FilmService filmService;
+
+    @PostMapping
+    public Film add(@RequestBody @Valid Film film) {
+        log.info("Receiving request 'POST /films'");
+        return filmService.addNewFilmToStorage(film);
+    }
+
+    @PutMapping
+    public Film update(@RequestBody @Valid Film film) {
+        log.info("Receiving request 'PUT /films'");
+        return filmService.updateFilmInStorage(film);
+    }
+
+    @PutMapping("/{id}/like/{userId}")
+    public void likeFilm(@PathVariable long id, @PathVariable long userId) {
+        log.info(String.format("Receiving request 'PUT /films/%d/like/%d'", id, userId));
+        filmService.likeFilmInStorage(id, userId);
+    }
+
+    @DeleteMapping("/{id}/like/{userId}")
+    public void deleteLikeFromFilm(@PathVariable long id, @PathVariable long userId) {
+        log.info(String.format("Receiving request 'DELETE /films/%d/like/%d'", id, userId));
+        filmService.deleteLikeFilmInStorage(id, userId);
+    }
+
+
+    @GetMapping("/{id}")
+    public Film getFilm(@PathVariable long id) {
+        log.info(String.format("Receiving request 'GET /films/%d'", id));
+        return filmService.getFilmFromStorage(id);
+    }
+
+    @GetMapping
+    public List<Film> getAll() {
+        log.info("Receiving request 'GET /films'");
+        return filmService.getAllFilmsFromStorage();
+    }
+
+    @GetMapping("/popular")
+    public List<Film> getMostLikedFilms(@RequestParam(defaultValue = "10") long count) {
+        log.info(String.format("Receiving request 'GET /films/popular?count=%d'", count));
+        return filmService.getMostLikedFilmsFromStorage(count);
+    }
+}
