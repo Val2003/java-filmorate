@@ -28,7 +28,6 @@ public class InMemoryUserStorage implements UserStorage {
 
     @Getter(lazy = true)
     private static final InMemoryUserStorage INSTANCE = new InMemoryUserStorage();
-    InMemoryUserStorage instance = new InMemoryUserStorage();
 
 
     private long generateUserId() {
@@ -43,7 +42,7 @@ public class InMemoryUserStorage implements UserStorage {
         if (users.containsValue(user)) {
             String exceptionMessage = "User already added";
             log.warn("Error when adding a new user. Exception message: {}", exceptionMessage);
-            throw new ObjAlreadyExistsException("Пользователь уже добавлен");
+            throw new ObjAlreadyExistsException("User already added");
         }
         user.setId(generateUserId());
         users.put(user.getId(), user);
