@@ -104,12 +104,12 @@ public class UserDbStorageDao implements UserStorage {
                 "name = ?," +
                 "birthday = ?" +
                 "WHERE id = ?";
-        int updatedRows = jdbcTemplate.update(sqlQuery
-                , user.getEmail()
-                , user.getLogin()
-                , user.getName()
-                , Date.valueOf(user.getBirthday())
-                , user.getId());
+        int updatedRows = jdbcTemplate.update(sqlQuery,
+                user.getEmail(),
+                user.getLogin(),
+                user.getName(),
+                Date.valueOf(user.getBirthday()),
+                user.getId());
         if (updatedRows == 0) {
             log.debug("User with id {} not found.", user.getId());
             throw new ObjDoesNotExistException(
