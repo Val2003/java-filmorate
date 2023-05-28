@@ -39,16 +39,16 @@ public class Film implements Serializable {
 
     private int likesAmount;
 
-    public Film(long id
-            , String name
-            , String description
-            , LocalDate releaseDate
-            , Duration duration
-            , List<User> likes
-            , int rate
-            , Mpa mpa
-            , List<Genre> genres
-            , int likesAmount) {
+    public Film(long id,
+                String name,
+                String description,
+                LocalDate releaseDate,
+                Duration duration,
+                List<User> likes,
+                int rate,
+                Mpa mpa,
+                List<Genre> genres,
+                int likesAmount) {
         this.id = id;
         this.name = name;
         this.description = description;
