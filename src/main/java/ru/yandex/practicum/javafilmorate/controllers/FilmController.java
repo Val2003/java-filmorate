@@ -1,6 +1,5 @@
 package ru.yandex.practicum.javafilmorate.controllers;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import ru.yandex.practicum.javafilmorate.model.Film;
@@ -12,10 +11,14 @@ import java.util.*;
 @RestController
 @RequestMapping("/films")
 @Slf4j
-@RequiredArgsConstructor
 public class FilmController {
 
     private final FilmService filmService;
+
+
+    public FilmController(FilmService filmService) {
+        this.filmService = filmService;
+    }
 
     @PostMapping
     public Film add(@RequestBody @Valid Film film) {
@@ -41,7 +44,6 @@ public class FilmController {
         filmService.deleteLikeFilmInStorage(id, userId);
     }
 
-
     @GetMapping("/{id}")
     public Film getFilm(@PathVariable long id) {
         log.info(String.format("Receiving request 'GET /films/%d'", id));
@@ -55,8 +57,9 @@ public class FilmController {
     }
 
     @GetMapping("/popular")
-    public List<Film> getMostLikedFilms(@RequestParam(defaultValue = "10") long count) {
+    public List<Film> getMostLikedFilms(@RequestParam(defaultValue = "10") int count) {
         log.info(String.format("Receiving request 'GET /films/popular?count=%d'", count));
         return filmService.getMostLikedFilmsFromStorage(count);
     }
+
 }

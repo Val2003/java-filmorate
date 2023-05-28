@@ -8,9 +8,9 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = StringValidator.class)
 @Documented
-public @interface StringWithoutSpaceSymbol {
+public @interface StringWithoutSpaceSymbolValidator {
 
-    String message() default "{Это строковое поле не может содержать пробелы}";
+    String message() default "{This string field cannot contain spaces}";
 
     Class<?>[] groups() default {};
 

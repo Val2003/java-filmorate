@@ -1,22 +1,24 @@
 package ru.yandex.practicum.javafilmorate.model;
 
 import lombok.*;
-import ru.yandex.practicum.javafilmorate.util.DurationPositiveOrZero;
+
+import ru.yandex.practicum.javafilmorate.util.PositiveOrZeroDuration;
 import ru.yandex.practicum.javafilmorate.util.FilmDate;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
 @Builder
-public class Film {
+public class Film implements Serializable {
 
     @EqualsAndHashCode.Exclude
     private long id;
@@ -27,8 +29,35 @@ public class Film {
     private String description;
     @FilmDate
     private LocalDate releaseDate;
-    @DurationPositiveOrZero
+    @PositiveOrZeroDuration
     private Duration duration;
-    private Set<Long> likes;
+    private List<User> likes;
+    private int rate;
+    private Mpa mpa;
+
+    private List<Genre> genres;
+
     private int likesAmount;
+
+    public Film(long id
+            , String name
+            , String description
+            , LocalDate releaseDate
+            , Duration duration
+            , List<User> likes
+            , int rate
+            , Mpa mpa
+            , List<Genre> genres
+            , int likesAmount) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.releaseDate = releaseDate;
+        this.duration = duration;
+        this.likes = likes;
+        this.rate = rate;
+        this.mpa = mpa;
+        this.genres = genres;
+        this.likesAmount = likesAmount;
+    }
 }

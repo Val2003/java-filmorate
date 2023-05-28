@@ -11,11 +11,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Target({FIELD})
 @Retention(RUNTIME)
-@Constraint(validatedBy = DurationPositiveOrZeroValidator.class)
+@Constraint(validatedBy = PositiveOrZeroDirationValidator.class)
 @Documented
-public @interface DurationPositiveOrZero {
+public @interface PositiveOrZeroDuration {
 
-    String message() default "{Длительность фильма должна быть больше или равна 0 сек.}";
+    String message() default "{Movie duration must be greater than or equal to 0 sec.}";
 
     Class<?>[] groups() default {};
 

@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 
-public class FilmorateExceptionHandler {
+public class RateExceptionHandler {
 
     @ExceptionHandler
     @ResponseStatus(code = HttpStatus.NOT_FOUND)
-    public ErrorResponseException handleInvalidPathVariableOrParameter(final InvalidPathVariableOrParameterException e) {
+    public ErrorResponseCode handleInvalidPathVariableOrParameter(final InvalidPathVariableOrParameterException e) {
 
-        return new ErrorResponseException(e.getParam(), e.getMessage());
+        return new ErrorResponseCode(e.getParam(), e.getMessage());
     }
 
     @ExceptionHandler
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public ErrorResponseException handleValidationException(final ValidationException e) {
+    public ErrorResponseCode handleValidationException(final ValidationException e) {
 
-        return new ErrorResponseException(e.getMessage());
+        return new ErrorResponseCode(e.getMessage());
     }
 
     @ExceptionHandler
     @ResponseStatus(code = HttpStatus.NOT_FOUND)
-    public ErrorResponseException handleEntityDoesNotExistException(final EntityDoesNotExistException e) {
+    public ErrorResponseCode handleEntityDoesNotExistException(final ObjDoesNotExistException e) {
 
-        return new ErrorResponseException(e.getMessage());
+        return new ErrorResponseCode(e.getMessage());
     }
 }

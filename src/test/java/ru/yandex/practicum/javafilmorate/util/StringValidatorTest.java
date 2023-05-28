@@ -1,32 +1,40 @@
 package ru.yandex.practicum.javafilmorate.util;
 
+
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import ru.yandex.practicum.javafilmorate.model.Film;
+
 
 import java.time.Duration;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class StringValidatorTest {
+
 
     @Test
     void isNullOrEmpty() {
-        Film titanicWithEmptyName = Film.builder().id(1)
+        Film terminatorWithEmptyName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
                 .duration(Duration.ofMinutes(90))
-                .releaseDate(LocalDate.of(1997, 1, 23))
+                .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
-        Film titanicWithNullName = Film.builder().id(1)
+        Film terminatorWithNullName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
                 .duration(Duration.ofMinutes(90))
-                .releaseDate(LocalDate.of(1997, 1, 23))
+                .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
-        assertTrue(StringValidator.isNullOrEmpty(titanicWithEmptyName.getName()));
-        assertTrue(StringValidator.isNullOrEmpty(titanicWithNullName.getName()));
+        assertTrue(StringValidator.isNullOrEmpty(terminatorWithEmptyName.getName()));
+        assertTrue(StringValidator.isNullOrEmpty(terminatorWithNullName.getName()));
     }
+
 }
