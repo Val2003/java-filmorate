@@ -36,8 +36,8 @@ public class LikeDao {
         } catch (DataIntegrityViolationException e) {
             log.debug("Movie with id = {} or User with id = {} not found.", filmId, userId);
             throw new ObjDoesNotExistException(
-                    String.format("Movie with id = %d or User with id = %d not found."
-                            , filmId, userId));
+                    String.format("Movie with id = %d or User with id = %d not found.",
+                            filmId, userId));
         }
 
         String sql2 = "UPDATE FILM\n" +
@@ -60,8 +60,8 @@ public class LikeDao {
         } catch (DataIntegrityViolationException e) {
             log.debug("Movie with id = {} or User with id = {} not found.", filmId, userId);
             throw new ObjDoesNotExistException(
-                    String.format("Movie with id = %d or User with id = %d not found."
-                            , filmId, userId));
+                    String.format("Movie with id = %d or User with id = %d not found.",
+                            filmId, userId));
         }
 
 
