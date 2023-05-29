@@ -70,7 +70,7 @@ public class UserService {
         }
     }
 
-    public void checkIsUserIdNegative(long id) {
+    private void checkIsUserIdNegative(long id) {
         if (id < 0) {
             log.debug("User with negative id {} cannot exist.", id);
             throw new ObjDoesNotExistException(
