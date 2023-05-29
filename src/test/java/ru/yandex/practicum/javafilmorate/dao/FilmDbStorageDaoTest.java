@@ -9,7 +9,6 @@ import org.springframework.test.context.jdbc.Sql;
 import ru.yandex.practicum.javafilmorate.model.Film;
 import ru.yandex.practicum.javafilmorate.model.Mpa;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 

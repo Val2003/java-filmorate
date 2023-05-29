@@ -10,7 +10,6 @@ import ru.yandex.practicum.javafilmorate.model.User;
 
 import javax.validation.ConstraintViolationException;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Random;
 
