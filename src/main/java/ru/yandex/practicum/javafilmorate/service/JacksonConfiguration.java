@@ -1,4 +1,4 @@
-package ru.yandex.practicum.javafilmorate.util;
+package ru.yandex.practicum.javafilmorate.service;
 
 import java.time.format.DateTimeFormatter;
 

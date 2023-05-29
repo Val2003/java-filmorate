@@ -2,13 +2,8 @@ package ru.yandex.practicum.javafilmorate.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
 import org.junit.jupiter.api.Test;
-
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ConfigurableApplicationContext;
-
-
 import ru.yandex.practicum.javafilmorate.model.User;
 
 import java.io.IOException;
@@ -18,19 +13,16 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class UserControllerTest {
 
-    private static ConfigurableApplicationContext app;
     private final ObjectMapper objectMapper = new ObjectMapper()
             .findAndRegisterModules()
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
     private static final int PORT = 8080;
-
 
     @Test
     public void shouldReturnUserEmailNullOrEmptyException() throws IOException, InterruptedException {

@@ -11,8 +11,9 @@ public class ValidatingService {
     private final Validator validator;
 
     ValidatingService() {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        this.validator = factory.getValidator();
+        try (ValidatorFactory factory = Validation.buildDefaultValidatorFactory()) {
+            this.validator = factory.getValidator();
+        }
     }
 
     void validateInputWithInjectedValidator(Object object) {
