@@ -32,7 +32,7 @@ class FilmDbStorageDaoTest {
         Film filmExpected = Film.builder().id(1)
                 .name("Terminator")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .mpa(new Mpa(1, "G"))
                 .build();
@@ -56,7 +56,7 @@ class FilmDbStorageDaoTest {
         Film filmToInsert = Film.builder().id(4)
                 .name("Terminator4")
                 .description("Test description4")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .mpa(new Mpa(1, "G"))
                 .build();
@@ -64,7 +64,7 @@ class FilmDbStorageDaoTest {
         Film filmExpected = Film.builder().id(4)
                 .name("Terminator4")
                 .description("Test description4")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .mpa(new Mpa(1, "G"))
                 .build();
@@ -88,21 +88,21 @@ class FilmDbStorageDaoTest {
         Film film1Expected = Film.builder().id(1)
                 .name("Terminator")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .mpa(new Mpa(1, "G"))
                 .build();
         Film film2Expected = Film.builder().id(2)
                 .name("Terminator2")
                 .description("Test description2")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .mpa(new Mpa(1, "G"))
                 .build();
         Film film3Expected = Film.builder().id(3)
                 .name("Terminator23")
                 .description("Test description23")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .mpa(new Mpa(1, "G"))
                 .build();
@@ -138,7 +138,7 @@ class FilmDbStorageDaoTest {
         Film film3Expected = Film.builder().id(3)
                 .name("Terminator23Upd")
                 .description("Test description23Upd")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .mpa(new Mpa(1, "G"))
                 .build();
@@ -163,7 +163,7 @@ class FilmDbStorageDaoTest {
         Film filmExpected = Film.builder().id(1)
                 .name("Terminator")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .mpa(new Mpa(1, "G"))
                 .build();

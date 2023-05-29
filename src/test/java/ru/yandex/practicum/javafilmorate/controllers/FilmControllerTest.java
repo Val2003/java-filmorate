@@ -11,7 +11,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Random;
 
@@ -32,7 +31,7 @@ class FilmControllerTest {
         final Film terminatorWithEmptyName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
@@ -57,7 +56,7 @@ class FilmControllerTest {
         final Film terminatorWithTooLongDescription = Film.builder().id(1)
                 .name("Terminator")
                 .description(generateLetterString())
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
@@ -82,7 +81,7 @@ class FilmControllerTest {
         final Film terminatorWithNegativeDuration = Film.builder().id(1)
                 .name("Terminator")
                 .description("Test Description")
-                .duration(Duration.ofMinutes(-90))
+                .duration(-90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
@@ -107,7 +106,7 @@ class FilmControllerTest {
         final Film terminatorWithTooOldReleaseDate = Film.builder().id(1)
                 .name("Terminator")
                 .description("Test Description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1797, 1, 23))
                 .build();
 

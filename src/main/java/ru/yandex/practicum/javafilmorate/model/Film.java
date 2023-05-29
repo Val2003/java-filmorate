@@ -1,15 +1,13 @@
 package ru.yandex.practicum.javafilmorate.model;
 
 import lombok.*;
-
-import ru.yandex.practicum.javafilmorate.util.PositiveOrZeroDuration;
 import ru.yandex.practicum.javafilmorate.util.FilmDate;
+import ru.yandex.practicum.javafilmorate.util.PositiveOrZeroDuration;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -30,7 +28,7 @@ public class Film implements Serializable {
     @FilmDate
     private LocalDate releaseDate;
     @PositiveOrZeroDuration
-    private Duration duration;
+    private Integer duration;
     private List<User> likes;
     private int rate;
     private Mpa mpa;
@@ -43,7 +41,7 @@ public class Film implements Serializable {
                 String name,
                 String description,
                 LocalDate releaseDate,
-                Duration duration,
+                Integer duration,
                 List<User> likes,
                 int rate,
                 Mpa mpa,

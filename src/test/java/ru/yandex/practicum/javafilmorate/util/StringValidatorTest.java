@@ -22,14 +22,14 @@ class StringValidatorTest {
         Film terminatorWithEmptyName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
         Film terminatorWithNullName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 

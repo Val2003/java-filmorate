@@ -48,7 +48,7 @@ public class FilmDbStorageDao implements FilmStorage {
             stmt.setString(1, film.getName());
             stmt.setString(2, film.getDescription());
             stmt.setDate(3, Date.valueOf(film.getReleaseDate()));
-            stmt.setInt(4, (int) film.getDuration().toSeconds());
+            stmt.setInt(4, (int) film.getDuration());
             stmt.setInt(5, film.getMpa().getId());
             stmt.setInt(6, film.getRate());
             stmt.setInt(7, 0);
@@ -108,7 +108,7 @@ public class FilmDbStorageDao implements FilmStorage {
                 film.getName(),
                 film.getDescription(),
                 Date.valueOf(film.getReleaseDate()),
-                (int) film.getDuration().toSeconds(),
+                (int) film.getDuration(),
                 film.getMpa().getId(),
                 film.getRate(),
                 film.getId());
@@ -149,7 +149,7 @@ public class FilmDbStorageDao implements FilmStorage {
         String name = rs.getString("name");
         String description = rs.getString("description");
         LocalDate releaseDate = rs.getDate("release_date").toLocalDate();
-        Duration duration = Duration.ofSeconds(rs.getInt("duration"));
+        Integer duration = (rs.getInt("duration"));
         Mpa mpa = new Mpa(rs.getInt("mpa"));
         int rate = rs.getInt("rate");
         int likesAmount = rs.getInt("LIKES_AMOUNT");

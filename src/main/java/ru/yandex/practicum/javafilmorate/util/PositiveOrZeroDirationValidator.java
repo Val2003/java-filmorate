@@ -2,11 +2,11 @@ package ru.yandex.practicum.javafilmorate.util;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.time.Duration;
 
-public class PositiveOrZeroDirationValidator implements ConstraintValidator<PositiveOrZeroDuration, Duration> {
+
+public class PositiveOrZeroDirationValidator implements ConstraintValidator<PositiveOrZeroDuration, Integer> {
     @Override
-    public boolean isValid(Duration duration, ConstraintValidatorContext constraintValidatorContext) {
-        return duration.toSeconds() >= 0;
+    public boolean isValid(Integer duration, ConstraintValidatorContext constraintValidatorContext) {
+        return duration >= 0;
     }
 }
