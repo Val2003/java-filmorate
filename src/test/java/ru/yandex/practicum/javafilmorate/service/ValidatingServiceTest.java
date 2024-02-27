@@ -10,7 +10,6 @@ import ru.yandex.practicum.javafilmorate.model.User;
 
 import javax.validation.ConstraintViolationException;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Random;
 
@@ -25,60 +24,60 @@ class ValidatingServiceTest {
 
     @Test
     void whenFilmNameIsEmpty_thenThrowsException() {
-        final Film titanicWithEmptyName = Film.builder().id(1)
+        final Film terminatorWithEmptyName = Film.builder().id(1)
                 .name("")
                 .description("Test description")
-                .duration(Duration.ofMinutes(90))
-                .releaseDate(LocalDate.of(1997, 1, 23))
+                .duration(90)
+                .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
         assertThrows(ConstraintViolationException.class, () -> {
-            service.validateInputWithInjectedValidator(titanicWithEmptyName);
+            service.validateInputWithInjectedValidator(terminatorWithEmptyName);
         });
     }
 
     @Test
     void whenFilmDescriptionIsTooLong_thenThrowsException() {
 
-        final Film titanicWithTooLongDescription = Film.builder().id(1)
-                .name("Titanic")
-                .description(generateLetterString(201))
-                .duration(Duration.ofMinutes(90))
-                .releaseDate(LocalDate.of(1997, 1, 23))
+        final Film terminatorWithTooLongDescription = Film.builder().id(1)
+                .name("Terminator")
+                .description(generateLetterString())
+                .duration(90)
+                .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
         assertThrows(ConstraintViolationException.class, () -> {
-            service.validateInputWithInjectedValidator(titanicWithTooLongDescription);
+            service.validateInputWithInjectedValidator(terminatorWithTooLongDescription);
         });
     }
 
     @Test
     void whenFilmDurationIsNegative_thenThrowsException() {
 
-        final Film titanicWithNegativeDuration = Film.builder().id(1)
-                .name("Titanic")
+        final Film terminatorWithNegativeDuration = Film.builder().id(1)
+                .name("Terminator")
                 .description("Test Description")
-                .duration(Duration.ofMinutes(-90))
-                .releaseDate(LocalDate.of(1997, 1, 23))
+                .duration(-90)
+                .releaseDate(LocalDate.of(1984, 10, 26))
                 .build();
 
         assertThrows(ConstraintViolationException.class, () -> {
-            service.validateInputWithInjectedValidator(titanicWithNegativeDuration);
+            service.validateInputWithInjectedValidator(terminatorWithNegativeDuration);
         });
     }
 
     @Test
     void whenFilmReleaseDateIsTooEarly_thenThrowsException() {
 
-        final Film titanicWithTooOldReleaseDate = Film.builder().id(1)
-                .name("Titanic")
+        final Film terminatorWithTooOldReleaseDate = Film.builder().id(1)
+                .name("Terminator")
                 .description("Test Description")
-                .duration(Duration.ofMinutes(90))
+                .duration(90)
                 .releaseDate(LocalDate.of(1797, 1, 23))
                 .build();
 
         assertThrows(ConstraintViolationException.class, () -> {
-            service.validateInputWithInjectedValidator(titanicWithTooOldReleaseDate);
+            service.validateInputWithInjectedValidator(terminatorWithTooOldReleaseDate);
         });
     }
 
@@ -162,13 +161,13 @@ class ValidatingServiceTest {
         });
     }
 
-    String generateLetterString(int targetStringLength) {
+    String generateLetterString() {
         int leftLimit = 97;
         int rightLimit = 122;
         Random random = new Random();
 
         return random.ints(leftLimit, rightLimit + 1)
-                .limit(targetStringLength)
+                .limit(201)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
     }

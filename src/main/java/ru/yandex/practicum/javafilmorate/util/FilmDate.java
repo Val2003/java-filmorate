@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 @Documented
 public @interface FilmDate {
 
-    String message() default "{Слишком старая дата релиза. Можно добавить фильмы с датой релиза после 28.12.1895}";
+    String message() default "{The release date is too old. You can add films with a release date after 28.12.1895}";
 
     Class<?>[] groups() default {};
 

@@ -3,7 +3,7 @@ package ru.yandex.practicum.javafilmorate.util;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public final class StringValidator implements ConstraintValidator<StringWithoutSpaceSymbol, String> {
+public final class StringValidator implements ConstraintValidator<StringWithoutSpaceSymbolValidator, String> {
 
     public static boolean isNullOrEmpty(String stringToValidate) {
 
